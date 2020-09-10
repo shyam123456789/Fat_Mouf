@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_competitive"
+        android:icon="@drawable/menu_competitive"
+        android:title="@string/title_competitive"
+
+        />
+    <item
+        android:id="@+id/nav_tyt"
+        android:icon="@drawable/menu_chat"
+        android:title="@string/title_talkyotalk" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/menu_profile"
+        android:title="@string/title_profile" />
+
+
+    <item
+        android:id="@+id/nav_notifications"
+        android:icon="@drawable/menu_notification"
+        android:title="@string/title_notifications" />
+</menu>

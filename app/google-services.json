@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "865347704365",
+    "firebase_url": "https://fat-mouf.firebaseio.com",
+    "project_id": "fat-mouf",
+    "storage_bucket": "fat-mouf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865347704365:android:e8e75b68de80eafad30aa4",
+        "android_client_info": {
+          "package_name": "com.example.fatmouf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865347704365-dvoupadt452sgm0hle46ouiq8178166l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fatmouf",
+            "certificate_hash": "38daf53e3d7f299a998d6ac246e5b97945512e25"
+          }
+        },
+        {
+          "client_id": "865347704365-0kq7ca0kohge32picm9fq3u4jrn4e2aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA0J0RaCwiaxtwKyOAq02hYbBB4r2daiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865347704365-0kq7ca0kohge32picm9fq3u4jrn4e2aq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

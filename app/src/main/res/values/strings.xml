@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Fat Mouf</string>
+    <string name="donthaveanccount">"Don't have an account? "</string>
+    <string name="create_now">Create Now!</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="forgotyourpassword">Forgot Your Password</string>
+    <string name="firstname">First name</string>
+    <string name="lastname">Last Name</string>
+    <string name="phone">Phone Number (optional)</string>
+    <string name="address">Address</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zipcode">Zip Code</string>
+    <string name="facebook_app_id" translatable="false">1133583167020907</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1133583167020907</string>
+    <string name="enteryourregisteremailaccount">Enter your registered email address to receive the access code for resetting your password.</string>
+    <string name="send_resetpassword_link">Send password reset link</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="back">Back</string>
+    <string name="changepassword">Change Password</string>
+    <string name="send">Send</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="title_activity_navigation">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notification</string>
+    <string name="title_competitive">Competitive</string>
+    <string name="title_talkyotalk">Talk Yo Talk</string>
+    <string name="title_profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="setting">Setting</string>
+    <string name="account">Account</string>
+    <string name="go_ad_free">Go Ad Free for 1.99</string>
+    <string name="support">Support</string>
+    <string name="aboutus">About Us</string>
+    <string name="termandcondition"><![CDATA[Terms & Conditions]]></string>
+    <string name="privacypolicy">Privacy Policy</string>
+    <string name="sendafeedback">Send a Feedback</string>
+    <string name="sharewithfriends">Share with Friends</string>
+    <string name="deleteaccount">Delete Account</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_nav">MainActivity</string>
+    <string name="title_activity_s_s_s">MainActivity</string>
+    <string name="title_activity_my_navigation">MainActivity</string>
+
+</resources>
