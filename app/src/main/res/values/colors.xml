@@ -6,6 +6,12 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000</color>
     <color name="grey">#615E5E</color>
+    <color name="grey2">#A6A1A1</color>
+    <color name="grey3">#D8D5D5</color>
+    <color name="reddark">#6C0505</color>
     <color name="red">#C62828</color>
+    <color name="redlight">#F61010</color>
+    <color name="bluelight">#038EE1</color>
     <color name="green">#32AF39</color>
+    <color name="transparent">#03000000</color>
 </resources>

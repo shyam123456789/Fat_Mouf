@@ -47,7 +47,7 @@ public class NotificationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notification, container, false);
         ButterKnife.bind(this, view);
-        rv_list.setAdapter(new NotificationAdapter());
+        rv_list.setAdapter(new NotificationAdapter(getContext()));
         return view;
     }
 }

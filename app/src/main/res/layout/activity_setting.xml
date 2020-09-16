@@ -73,7 +73,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/switch_notification"
@@ -85,15 +85,35 @@
                 android:layout_marginBottom="@dimen/_4sdp"
                 android:text="@string/title_notifications"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:onClick="changepassword"
+                android:id="@+id/tv_changepassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:drawableTint="@color/black"
+                android:text="@string/changepassword"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.7dp"
+                android:background="@color/grey2" />
+
+  <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="adfree"
                 android:id="@+id/tv_adfree"
                 android:layout_width="match_parent"
@@ -106,12 +126,12 @@
                 android:drawableTint="@color/black"
                 android:text="@string/go_ad_free"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -129,7 +149,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -145,12 +165,12 @@
                 android:drawableTint="@color/black"
                 android:text="@string/aboutus"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="termscondition"
@@ -165,12 +185,12 @@
                 android:drawableTint="@color/black"
                 android:text="@string/termandcondition"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="privacypolicy"
@@ -185,12 +205,12 @@
                 android:drawableTint="@color/black"
                 android:text="@string/privacypolicy"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="feedback"
@@ -205,12 +225,12 @@
                 android:drawableTint="@color/black"
                 android:text="@string/sendafeedback"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="share"
@@ -225,12 +245,12 @@
                 android:drawableTint="@color/black"
                 android:text="@string/sharewithfriends"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="delete"
@@ -241,16 +261,16 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_4sdp"
-                android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:drawableRight="@drawable/ic_baseline_delete_24"
                 android:drawableTint="@color/black"
                 android:text="@string/deleteaccount"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:onClick="logout"
@@ -261,16 +281,16 @@
                 android:layout_marginTop="@dimen/_4sdp"
                 android:layout_marginRight="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_4sdp"
-                android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                android:drawableRight="@drawable/ic_logout"
                 android:drawableTint="@color/black"
                 android:text="@string/logout"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_18sdp" />
+                android:textSize="@dimen/_15sdp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.7dp"
-                android:background="@color/grey" />
+                android:background="@color/grey2" />
 
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -284,7 +304,7 @@
                 android:gravity="center"
                 android:text="appversion"
                 android:textColor="@color/black"
-                android:textSize="@dimen/_17sdp" />
+                android:textSize="@dimen/_12sdp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

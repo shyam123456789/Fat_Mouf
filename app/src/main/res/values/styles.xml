@@ -16,4 +16,8 @@
         <item name = "android:windowNoTitle">true</item>
     </style>
 
+    <style name="CustomTabText">
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+
 </resources>

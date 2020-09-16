@@ -47,4 +47,8 @@ public class ChangePasswordActivity extends MyAbstractActivity {
 
     public void send(View view) {
     }
+
+    public void Back(View view) {
+        finish();
+    }
 }

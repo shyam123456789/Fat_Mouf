@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
@@ -19,6 +22,9 @@ public class SettingActivity extends MyAbstractActivity {
 
     @BindView(R.id.tv_share)
     AppCompatTextView tv_share;
+
+    @BindView(R.id.tv_appverstion)
+    AppCompatTextView tv_appverstion;
 
     @BindView(R.id.tv_adfree)
     AppCompatTextView tv_adfree;
@@ -57,6 +63,13 @@ public class SettingActivity extends MyAbstractActivity {
 
     @Override
     public void listners() {
+        try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = pInfo.versionName;
+            tv_appverstion.setText("Version " + version);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -94,5 +107,11 @@ public class SettingActivity extends MyAbstractActivity {
 
     public void adfree(View view) {
 
+    }
+
+
+    public void changepassword(View view) {
+        startActivity(new Intent(this, ChangePasswordActivity.class));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/menu_talkyotalk"
+        android:layout_width="@dimen/_28sdp"
+        android:layout_height="@dimen/_28sdp"
+        android:padding="@dimen/_4sdp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/menu_chat"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_9sdp"
+        android:tint="@color/white" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title_talkyotalk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/title_talkyotalk"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_9sdp"
+
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
+

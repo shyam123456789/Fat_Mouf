@@ -29,10 +29,12 @@ public class SplashActivity extends MyAbstractActivity {
 
     @Override
     public void initview() {
-        Glide.with(this).load(R.drawable.splash_screen).into(iv);
+        Glide.with(this).load(R.drawable.splash).into(iv);
         new Handler().postDelayed(() -> {
             Intent intent = new Intent(this, Login.class);
             startActivity(intent);
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            finish();
         }, 2000);
     }
 

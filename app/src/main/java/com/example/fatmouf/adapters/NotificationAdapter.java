@@ -1,13 +1,16 @@
 package com.example.fatmouf.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fatmouf.R;
 
 import butterknife.BindView;
@@ -16,6 +19,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapter.NHolder> {
 
+
+    private Context context;
+
+    public NotificationAdapter(Context context) {
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -26,7 +35,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
     @Override
     public void onBindViewHolder(@NonNull NHolder holder, int position) {
-
+        Glide.with(context).load(R.drawable.ic_avatar).into(holder.civ_img);
     }
 
     @Override

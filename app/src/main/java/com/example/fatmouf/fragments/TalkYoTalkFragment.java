@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.fatmouf.R;
 import com.example.fatmouf.adapters.TalkYoTalkAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,6 +21,8 @@ public class TalkYoTalkFragment extends Fragment {
     @BindView(R.id.rv_list)
     RecyclerView recyclerView;
 
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
     public static TalkYoTalkFragment newInstance(String param1, String param2) {
         TalkYoTalkFragment fragment = new TalkYoTalkFragment();

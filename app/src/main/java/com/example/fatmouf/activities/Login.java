@@ -55,7 +55,7 @@ public class Login extends MyAbstractActivity {
 
 
     @BindView(R.id.btn_loginwithgoogle)
-    CardView  google;
+    CardView google;
 
 
     @BindView(R.id.bar)
@@ -272,16 +272,19 @@ public class Login extends MyAbstractActivity {
     }
 
     public void CreateNow(View view) {
-        Intent intent = new Intent(this,SignUpActivity.class);
+        Intent intent = new Intent(this, SignUpActivity.class);
         startActivity(intent);
-        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 
     public void Login(View view) {
-
+        startActivity(new Intent(this, MainActivity.class));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
     }
 
     public void Forgot_password(View view) {
-
+        startActivity(new Intent(this, ForgotpasswordActivity.class));
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

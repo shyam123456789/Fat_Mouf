@@ -13,7 +13,7 @@
     <string name="city">City</string>
     <string name="state">State</string>
     <string name="zipcode">Zip Code</string>
-    <string name="facebook_app_id" translatable="false">1133583167020907</string>
+    <string name="facebook_app_id" translatable="false">113583167020907</string>
     <string name="fb_login_protocol_scheme" translatable="false">fb1133583167020907</string>
     <string name="enteryourregisteremailaccount">Enter your registered email address to receive the access code for resetting your password.</string>
     <string name="send_resetpassword_link">Send password reset link</string>
@@ -49,5 +49,21 @@
     <string name="title_activity_nav">MainActivity</string>
     <string name="title_activity_s_s_s">MainActivity</string>
     <string name="title_activity_my_navigation">MainActivity</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="post">Post</string>
+    <string name="addchallenge">Add challenge</string>
+    <string name="title">Title</string>
+    <string name="startdate">Start Date</string>
+    <string name="enddate">End Date</string>
+    <string name="description">Description</string>
+    <string name="favour">Favour</string>
+    <string name="starttypinghere">Start Typing Here...</string>
+    <string name="report">Report</string>
+    <string name="markaswinner">Mark as Winner</string>
+    <string name="add">Add</string>
+    <string name="addactivity">Add Activity</string>
+    <string name="sendfeedback">Send Feedback</string>
+    <string name="pleasebriefwhathappend">Please briefly  explain what happened</string>
 
 </resources>

@@ -40,4 +40,8 @@ public class ForgotpasswordActivity extends MyAbstractActivity {
     public void send_reset_link(View view) {
 
     }
+
+    public void Back(View view) {
+        finish();
+    }
 }
