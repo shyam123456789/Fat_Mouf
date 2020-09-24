@@ -1,7 +1,10 @@
 package com.example.fatmouf.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,11 +16,26 @@ import android.widget.RadioGroup;
 
 import com.example.fatmouf.R;
 import com.example.fatmouf.Utilities.AppUtils;
+import com.example.fatmouf.Utilities.MyLog;
+import com.example.fatmouf.Utilities.PreferenceManger;
+import com.example.fatmouf.activities.AddActivity;
+import com.example.fatmouf.activities.AddChallenge;
+import com.example.fatmouf.activities.BaseActivity;
 import com.example.fatmouf.adapters.CompetitiveAdapter;
+import com.example.fatmouf.models.HomePublicModel;
+import com.example.fatmouf.models.HomePublicResponse;
+import com.example.fatmouf.retrofit_provider.RetrofitService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +44,6 @@ import butterknife.ButterKnife;
  */
 public class CompetitiveFragment extends Fragment {
 
-    @BindView(R.id.rv_list)
-    RecyclerView rv_list;
 
     @BindView(R.id.fab)
     FloatingActionButton fab;
@@ -41,6 +57,9 @@ public class CompetitiveFragment extends Fragment {
     @BindView(R.id.post)
     RadioButton rbtn_post;
     private CompetitiveAdapter adapter;
+    private ArrayList<HomePublicModel> privateList = new ArrayList<>();
+    private ArrayList<HomePublicModel> publicList = new ArrayList<>();
+    private String TAG = CompetitiveFragment.class.getSimpleName();
 
     public static CompetitiveFragment newInstance(String param1, String param2) {
         CompetitiveFragment fragment = new CompetitiveFragment();
@@ -72,21 +91,22 @@ public class CompetitiveFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_competitive, container, false);
         ButterKnife.bind(this, view);
-        adapter = new CompetitiveAdapter(getContext());
-        rv_list.setAdapter(adapter);
+
+        //   showFragment(new PublicHomeFragment());
         toggle.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {
                 case R.id.post:
                     rbtn_post.setTextColor(getResources().getColor(R.color.white));
                     rbtn_products.setTextColor(getResources().getColor(R.color.black));
-                    //      getFragmentManager().beginTransaction().replace(R.id.placeholder_1, new HomeFeaturedFragment()).commit();
+                    showFragment(new PublicHomeFragment());
+
                     break;
 
                 case R.id.product:
                     rbtn_post.setTextColor(getResources().getColor(R.color.black));
                     rbtn_products.setTextColor(getResources().getColor(R.color.white));
+                    showFragment(new PrivateHomeFragment());
 
-                    //      getFragmentManager().beginTransaction().replace(R.id.placeholder_1, new FavoriteProductFragment()).commit();
                     break;
 
 
@@ -95,4 +115,29 @@ public class CompetitiveFragment extends Fragment {
         rbtn_post.setChecked(true);
         return view;
     }
+
+    private void showFragment(Fragment fra) {
+        getChildFragmentManager().beginTransaction().replace(R.id.container, fra).commit();
+    }
+
+    BaseActivity activity;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        activity = (BaseActivity) getActivity();
+
+    }
+
+    @OnClick(R.id.fab)
+    public void OnAddActivity() {
+        Intent intent = new Intent(getContext(), AddChallenge.class);
+        startActivity(intent);
+        try {
+            activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        } catch (Exception e) {
+        }
+    }
+
+
 }

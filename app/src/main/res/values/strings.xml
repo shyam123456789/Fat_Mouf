@@ -65,5 +65,15 @@
     <string name="addactivity">Add Activity</string>
     <string name="sendfeedback">Send Feedback</string>
     <string name="pleasebriefwhathappend">Please briefly  explain what happened</string>
+    <string name="referralcode">Referral Code</string>
+    <string name="addnewgroup">Add New Group</string>
+    <string name="groupimage">Group Image</string>
+    <string name="groupname">Group Name</string>
+    <string name="groupmember">Group Members</string>
+
+    <string-array name="array_accessbility">
+        <item>Private</item>
+        <item>Public</item>
+    </string-array>
 
 </resources>

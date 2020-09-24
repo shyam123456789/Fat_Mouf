@@ -10,7 +10,12 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.fatmouf.BuildConfig;
+import com.example.fatmouf.Dialogs.DialogUtilFragment;
+import com.example.fatmouf.Dialogs.SendFeedBackDialog;
 import com.example.fatmouf.R;
+import com.example.fatmouf.Utilities.AppUtils;
+import com.example.fatmouf.Utilities.MyLog;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -52,6 +57,8 @@ public class SettingActivity extends MyAbstractActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         ButterKnife.bind(this);
+        initview();
+        listners();
 
 
     }
@@ -63,14 +70,8 @@ public class SettingActivity extends MyAbstractActivity {
 
     @Override
     public void listners() {
-        try {
-            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            String version = pInfo.versionName;
-            tv_appverstion.setText("Version " + version);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-
+        MyLog.LogE("APPVERSION", ">> " + BuildConfig.VERSION_NAME);
+        tv_appverstion.setText("Version " + BuildConfig.VERSION_NAME);
     }
 
     public void Back(View view) {
@@ -87,22 +88,42 @@ public class SettingActivity extends MyAbstractActivity {
     }
 
     public void share(View view) {
+        String msg =
+                getResources().getString(R.string.app_name) +
+                        "\n\n Hey check out my app at: \n\n https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID;
 
+        AppUtils.share(this, getResources().getString(R.string.app_name), msg);
     }
 
     public void feedback(View view) {
+        SendFeedBackDialog fragment = new SendFeedBackDialog();
+        fragment.show(getSupportFragmentManager(), "");
     }
 
     public void privacypolicy(View view) {
 
+        DialogUtilFragment fragment = new DialogUtilFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("TYPE", "PRIVACY_POLICY");
+        fragment.setArguments(bundle);
+        fragment.show(getSupportFragmentManager(), "");
     }
 
     public void termscondition(View view) {
 
+        DialogUtilFragment fragment = new DialogUtilFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("TYPE", "TERMS_CONDITION");
+        fragment.setArguments(bundle);
+        fragment.show(getSupportFragmentManager(), "");
     }
 
     public void aboutus(View view) {
-
+        DialogUtilFragment fragment = new DialogUtilFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("TYPE", "ABOUT_US");
+        fragment.setArguments(bundle);
+        fragment.show(getSupportFragmentManager(), "");
     }
 
     public void adfree(View view) {

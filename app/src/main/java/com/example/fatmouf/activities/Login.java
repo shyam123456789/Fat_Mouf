@@ -14,9 +14,15 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.cardview.widget.CardView;
 
 import com.example.fatmouf.R;
+import com.example.fatmouf.Utilities.AppUtils;
+import com.example.fatmouf.Utilities.PreferenceManger;
+import com.example.fatmouf.models.LoginResponse;
+import com.example.fatmouf.models.ResponseModel;
+import com.example.fatmouf.retrofit_provider.RetrofitService;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -49,6 +55,12 @@ import retrofit2.Response;
 public class Login extends MyAbstractActivity {
 
     private static final int RC_SIGN_IN = 100;
+
+    @BindView(R.id.et_email)
+    AppCompatEditText et_email;
+
+    @BindView(R.id.et_password)
+    AppCompatEditText et_password;
 
     @BindView(R.id.btn_loginwithfacebook)
     CardView facebook;
@@ -278,13 +290,48 @@ public class Login extends MyAbstractActivity {
     }
 
     public void Login(View view) {
-        startActivity(new Intent(this, MainActivity.class));
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-        finish();
+        String email = et_email.getText().toString();
+        String pass = et_password.getText().toString();
+        if (AppUtils.ValidateText(email, "Please enter valid email!", et_email) && AppUtils.ValidateText(pass, "Please enter valid password!", et_password)) {
+            Login(email, pass);
+        } else {
+            Toast.makeText(this, "Please Enter Details", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void Login(String email, String pass) {
+        getProgressDialog().show();
+        Call<LoginResponse> call = RetrofitService.RetrofitService().login(email, pass);
+        call.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                getProgressDialog().dismiss();
+                if (response.body() != null) {
+                    if (response.body().getStatus()) {
+                        PreferenceManger.getPreferenceManger().setAuthToken(response.body().getData().getToken());
+                        PreferenceManger.getPreferenceManger().setUserdetail(response.body().getData().getUser());
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                        finish();
+                    } else {
+                        Toast.makeText(Login.this, "" + response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Toast.makeText(Login.this, "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                getProgressDialog().dismiss();
+            }
+        });
     }
 
     public void Forgot_password(View view) {
         startActivity(new Intent(this, ForgotpasswordActivity.class));
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
+
+
 }

@@ -7,13 +7,13 @@ public class ResponseModel {
 
     @SerializedName("status")
     @Expose
-    String status;
+    boolean status;
 
     @SerializedName("message")
     @Expose
     String message;
 
-    public String getStatus() {
+    public boolean getStatus() {
         return status;
     }
 

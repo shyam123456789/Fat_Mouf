@@ -8,6 +8,7 @@ import android.os.Handler;
 
 import com.bumptech.glide.Glide;
 import com.example.fatmouf.R;
+import com.example.fatmouf.Utilities.PreferenceManger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,10 +32,17 @@ public class SplashActivity extends MyAbstractActivity {
     public void initview() {
         Glide.with(this).load(R.drawable.splash).into(iv);
         new Handler().postDelayed(() -> {
-            Intent intent = new Intent(this, Login.class);
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
+            if (PreferenceManger.getPreferenceManger().getUserdetail() != null && PreferenceManger.getPreferenceManger().getAuthToken() != null) {
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
+            } else {
+                Intent intent = new Intent(this, Login.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+                finish();
+            }
         }, 2000);
     }
 

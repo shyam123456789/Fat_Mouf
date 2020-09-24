@@ -2,7 +2,7 @@ package com.example.fatmouf.Utilities;
 
 import android.util.Log;
 
-import com.intuit.sdp.BuildConfig;
+import com.example.fatmouf.BuildConfig;
 
 
 public class MyLog {

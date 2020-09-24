@@ -83,4 +83,14 @@ public class AppUtils {
         }
     }
 
+    public static boolean TextValidation(String text, AppCompatEditText et, String err) {
+        if (text.isEmpty()) {
+            et.setError(err);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
+

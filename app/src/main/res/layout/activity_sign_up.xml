@@ -148,10 +148,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:background="@null"
+                    android:digits="0123456789"
                     android:hint="@string/phone"
                     android:inputType="phone"
                     android:padding="@dimen/_6sdp"
-
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
 
@@ -297,6 +297,33 @@
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_3sdp"
+
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_7sdp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_referral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:background="@null"
+                    android:hint="@string/referralcode"
+
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black" />
+
+
+            </androidx.cardview.widget.CardView>
+
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"

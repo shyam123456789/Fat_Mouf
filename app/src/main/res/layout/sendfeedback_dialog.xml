@@ -27,14 +27,15 @@
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left|center"
+                android:layout_marginLeft="@dimen/_15sdp"
                 android:drawableLeft="@drawable/ic_back_black"
                 android:drawableTint="@color/white"
                 android:gravity="center"
                 android:text="@string/back"
-                android:layout_marginLeft="@dimen/_15sdp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_11sdp"
                 android:textStyle="bold" />
@@ -69,6 +70,7 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/_5sdp"
                 android:orientation="vertical">
 
 
@@ -111,7 +113,6 @@
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                     app:spanCount="3" />
-
 
 
             </androidx.appcompat.widget.LinearLayoutCompat>

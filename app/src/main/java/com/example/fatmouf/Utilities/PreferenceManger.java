@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.service.autofill.UserData;
 
+import com.example.fatmouf.models.UserDetail;
 import com.google.gson.Gson;
 
 public final class PreferenceManger {
@@ -21,18 +22,22 @@ public final class PreferenceManger {
         }
     }
 
-    public void setString(String key, String value) {
-        sharedPreferences.edit().putString(key, value).commit();
+    public void setAuthToken(String token) {
+        sharedPreferences.edit().putString("auth", token).apply();
     }
 
-    public void setUserdetail(UserData value) {
+    public String getAuthToken() {
+        return sharedPreferences.getString("auth", null);
+    }
+
+    public void setUserdetail(UserDetail value) {
         sharedPreferences.edit().putString("userdetail", new Gson().toJson(value)).apply();
     }
 
-    public UserData getUserdetail() {
-        UserData userdetail = null;
+    public UserDetail getUserdetail() {
+        UserDetail userdetail = null;
         if (sharedPreferences.getString("userdetail", null) != null) {
-            userdetail = new Gson().fromJson(sharedPreferences.getString("userdetail", null), UserData.class);
+            userdetail = new Gson().fromJson(sharedPreferences.getString("userdetail", null), UserDetail.class);
         }
         return userdetail;
     }

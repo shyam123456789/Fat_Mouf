@@ -15,6 +15,7 @@ import com.example.fatmouf.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class DialogUtilFragment extends DialogFragment {
 
@@ -45,5 +46,10 @@ public class DialogUtilFragment extends DialogFragment {
         return view;
     }
 
+
+    @OnClick(R.id.tv_back)
+    public void OnBack() {
+        dismiss();
+    }
 
 }

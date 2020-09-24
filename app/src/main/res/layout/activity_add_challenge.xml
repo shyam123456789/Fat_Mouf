@@ -97,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
-                    android:hint="@string/firstname"
+                    android:hint="@string/title"
                     android:padding="@dimen/_4sdp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/grey" />
@@ -117,10 +117,10 @@
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="0dp"
-                        android:onClick="StartDate"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/_8sdp"
                         android:layout_weight="1"
+                        android:onClick="StartDate"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
@@ -131,7 +131,7 @@
                             android:textStyle="bold" />
 
 
-                        <androidx.appcompat.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/et_startdate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                             android:textStyle="bold" />
 
 
-                        <androidx.appcompat.widget.AppCompatEditText
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/et_enddate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -254,8 +254,12 @@
 
                     <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_addpartincipants"
-                        android:layout_width="@dimen/_45sdp"
-                        android:layout_height="@dimen/_45sdp" />
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:background="@drawable/bg_login"
+                        android:padding="@dimen/_6sdp"
+                        android:src="@drawable/ic_add_person"
+                        android:tint="@color/white" />
 
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -265,6 +269,7 @@
                         android:layout_marginLeft="@dimen/_7sdp"
                         android:gravity="center"
                         android:lines="2"
+
                         android:text="Add Participants"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_12sdp"

@@ -1,7 +1,10 @@
 package com.example.fatmouf.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,11 +13,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fatmouf.R;
+import com.example.fatmouf.Utilities.PreferenceManger;
+import com.example.fatmouf.activities.AddNewGroupActivity;
+import com.example.fatmouf.activities.BaseActivity;
 import com.example.fatmouf.adapters.TalkYoTalkAdapter;
+import com.example.fatmouf.models.GroupListModel;
+import com.example.fatmouf.models.GroupModel;
+import com.example.fatmouf.retrofit_provider.RetrofitService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TalkYoTalkFragment extends Fragment {
 
@@ -23,6 +38,9 @@ public class TalkYoTalkFragment extends Fragment {
 
     @BindView(R.id.fab)
     FloatingActionButton fab;
+    TalkYoTalkAdapter adapter;
+
+    ArrayList<GroupModel> list = new ArrayList<>();
 
     public static TalkYoTalkFragment newInstance(String param1, String param2) {
         TalkYoTalkFragment fragment = new TalkYoTalkFragment();
@@ -48,9 +66,49 @@ public class TalkYoTalkFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_talk_yo_talk, container, false);
         ButterKnife.bind(this, view);
-      recyclerView.setAdapter(new TalkYoTalkAdapter());
-         return view;
+        adapter = new TalkYoTalkAdapter(getContext(), list);
+        recyclerView.setAdapter(adapter);
+        getList();
+        return view;
     }
 
+
+    BaseActivity activity;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if (activity == null) {
+            activity = (BaseActivity) getActivity();
+        }
+    }
+
+    public void getList() {
+        activity.getProgressDialog().show();
+        Call<GroupListModel> call = RetrofitService.RetrofitService().get_group_list("Bearer " + PreferenceManger.getPreferenceManger().getAuthToken());
+        call.enqueue(new Callback<GroupListModel>() {
+            @Override
+            public void onResponse(Call<GroupListModel> call, Response<GroupListModel> response) {
+                activity.getProgressDialog().dismiss();
+                if (response.body() != null) {
+                    list.addAll(response.body().getList());
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<GroupListModel> call, Throwable t) {
+                activity.getProgressDialog().dismiss();
+            }
+        });
+
+    }
+
+    @OnClick(R.id.fab)
+    public void AddGroup() {
+        Intent intent = new Intent(getContext(), AddNewGroupActivity.class);
+        startActivity(intent);
+        activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 
 }

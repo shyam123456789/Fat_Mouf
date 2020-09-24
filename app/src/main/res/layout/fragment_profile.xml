@@ -53,7 +53,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Display Name"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
@@ -80,7 +79,6 @@
                                 android:layout_marginLeft="@dimen/_7sdp"
                                 android:gravity="center"
                                 android:singleLine="true"
-                                android:text="Indore, India"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12sdp" />
 
@@ -109,7 +107,6 @@
                                 android:layout_marginLeft="@dimen/_7sdp"
                                 android:gravity="center"
                                 android:singleLine="true"
-                                android:text="vvdss@gmail.com"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12sdp" />
 
@@ -137,7 +134,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_7sdp"
                                 android:singleLine="true"
-                                android:text="706714"
                                 android:textColor="@color/black"
                                 android:textSize="@dimen/_12sdp" />
 

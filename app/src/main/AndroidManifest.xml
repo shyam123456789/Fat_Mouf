@@ -14,11 +14,44 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.AddActivity"></activity>
-        <activity android:name=".activities.SelectWinnerActivity" />
-        <activity android:name=".activities.ChallengeMorePeopleActivity" />
-        <activity android:name=".activities.CompetitiveActivity" />
-        <activity android:name=".activities.AddChallenge" />
+        <activity android:name=".activities.ActivitiesListActivity"></activity>
+        <activity android:name=".activities.AddParticipants" />
+        <activity android:name=".activities.AddNewGroupActivity" />
+        <activity
+            android:name=".activities.VideoActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".activities.ChatActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".activities.AddActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".activities.SelectWinnerActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".activities.ChallengeMorePeopleActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".activities.CompetitiveActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name=".activities.AddChallenge"
+            android:launchMode="singleInstance"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
         <activity
             android:name=".activities.SettingActivity"
             android:launchMode="singleInstance"

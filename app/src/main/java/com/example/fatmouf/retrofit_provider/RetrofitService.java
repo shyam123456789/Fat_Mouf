@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
 
-    public static String BASE_URL = "http://brooksandglane.com/mouf/api/";
+    public static String BASE_URL = "https://jewelryexchange.app/mouf/api/";
 
     public static RetrofitApiClient RetrofitService() {
 
@@ -32,7 +32,7 @@ public class RetrofitService {
         /*if (BuildConfig.DEBUG) {
             mOkClient.addInterceptor(mHttpLoginInterceptor);
         }
-*/
+       */
 
 
         Gson gson = new GsonBuilder()

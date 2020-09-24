@@ -12,12 +12,15 @@ import androidx.fragment.app.DialogFragment;
 import com.example.fatmouf.R;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SendFeedBackDialog extends DialogFragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setStyle(STYLE_NO_FRAME, android.R.style.Theme_Holo_Light);
+
     }
 
     @Nullable
@@ -28,6 +31,11 @@ public class SendFeedBackDialog extends DialogFragment {
 
 
         return view;
+    }
+
+    @OnClick(R.id.tv_back)
+    public void OnBack() {
+        dismiss();
     }
 
 
