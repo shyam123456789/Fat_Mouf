@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activities.ActivitiesListActivity">
+    tools:context=".activities.ParticipantasActivity">
 
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -13,21 +12,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimaryDark"
-            android:contentInsetStart="0dp"
-            android:contentInsetLeft="0dp"
-            android:contentInsetEnd="0dp"
-            android:contentInsetRight="0dp"
-            android:orientation="horizontal"
-            app:contentInsetEnd="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetRight="0dp"
-            app:contentInsetStart="0dp">
+            android:orientation="horizontal">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -38,26 +28,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center"
-                    android:layout_marginLeft="@dimen/_15sdp"
-                    android:drawableLeft="@drawable/ic_back_black"
-                    android:drawableTint="@color/white"
                     android:gravity="center"
                     android:onClick="Back"
-                    android:text="@string/back"
+                    android:text="@string/cancel"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_11sdp"
                     android:textStyle="bold" />
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_post"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center"
                     android:layout_marginRight="@dimen/_15sdp"
                     android:gravity="center"
-                    android:onClick="menu"
-                    android:src="@drawable/ic_menu"
-                    android:tint="@color/white"
-                    android:visibility="gone" />
+                    android:onClick="post"
+                    android:text="@string/post"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_11sdp"
+                    android:textStyle="bold" />
+
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tv_title"
@@ -81,8 +71,8 @@
             android:layout_margin="@dimen/_10sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

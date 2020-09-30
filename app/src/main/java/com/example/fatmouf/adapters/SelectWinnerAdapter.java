@@ -18,7 +18,7 @@ public class SelectWinnerAdapter extends RecyclerView.Adapter<SelectWinnerAdapte
     @Override
     public SWHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.pholder_raw, parent, false);
-        return null;
+        return new SWHolder(view);
     }
 
     @Override

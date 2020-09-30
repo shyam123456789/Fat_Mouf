@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fatmouf.R;
+import com.example.fatmouf.Utilities.OnItemClickListner;
 import com.example.fatmouf.models.GroupModel;
 
 import java.util.ArrayList;
@@ -24,10 +25,12 @@ public class TalkYoTalkAdapter extends RecyclerView.Adapter<TalkYoTalkAdapter.TY
 
     Context context;
     ArrayList<GroupModel> list;
+    OnItemClickListner listner;
 
-    public TalkYoTalkAdapter(Context context, ArrayList<GroupModel> list) {
+    public TalkYoTalkAdapter(Context context, ArrayList<GroupModel> list, OnItemClickListner listner) {
         this.context = context;
         this.list = list;
+        this.listner = listner;
     }
 
     @NonNull
@@ -40,8 +43,11 @@ public class TalkYoTalkAdapter extends RecyclerView.Adapter<TalkYoTalkAdapter.TY
     @Override
     public void onBindViewHolder(@NonNull TYTHolder holder, int position) {
         GroupModel model = list.get(position);
-        Glide.with(context).load(model.getImage()).into(holder.iv_img);
+        Glide.with(context).load(model.getImage()).placeholder(R.drawable.ic_avatar).into(holder.iv_img);
         holder.tv_title.setText(model.getTitle());
+        holder.itemView.setOnClickListener(view -> {
+            listner.OnClick(position);
+        });
     }
 
     @Override
@@ -64,5 +70,8 @@ public class TalkYoTalkAdapter extends RecyclerView.Adapter<TalkYoTalkAdapter.TY
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+
+
     }
+
 }

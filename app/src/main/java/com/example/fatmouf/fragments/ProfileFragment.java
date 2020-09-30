@@ -1,5 +1,6 @@
 package com.example.fatmouf.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.AppCompatImageView;
@@ -13,11 +14,18 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import com.example.fatmouf.R;
 import com.example.fatmouf.Utilities.PreferenceManger;
+import com.example.fatmouf.activities.ActivitiesListActivity;
+import com.example.fatmouf.activities.EditProfileActivity;
 import com.example.fatmouf.models.UserDetail;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.example.fatmouf.Utilities.AppConstants.ACCEPTEDCHALLENGE;
+import static com.example.fatmouf.Utilities.AppConstants.FROM;
+import static com.example.fatmouf.Utilities.AppConstants.VIEWMYCHALLENGE;
 
 public class ProfileFragment extends Fragment {
 
@@ -77,7 +85,7 @@ public class ProfileFragment extends Fragment {
         Glide.with(getContext()).load(R.drawable.participant_challenge).into(iv_pc);
         UserDetail detail = PreferenceManger.getPreferenceManger().getUserdetail();
         if (detail != null) {
-            Glide.with(getContext()).load(detail.getImage()).into(civ_dp);
+            Glide.with(getContext()).load(detail.getImage()).placeholder(R.drawable.ic_avatar).into(civ_dp);
             tv_name.setText(detail.getFirstName() + " " + detail.getLastName());
             tv_email.setText(detail.getEmail());
             tv_phone.setText(detail.getPhonenumber());
@@ -86,5 +94,28 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+
+    @OnClick(R.id.iv_my)
+    public void MyChallenge() {
+        Intent intent = new Intent(getContext(), ActivitiesListActivity.class);
+        intent.putExtra(FROM, VIEWMYCHALLENGE);
+        startActivity(intent);
+        getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @OnClick(R.id.iv_pc)
+    public void AcceptedChallenge() {
+        Intent intent = new Intent(getContext(), ActivitiesListActivity.class);
+        intent.putExtra(FROM, ACCEPTEDCHALLENGE);
+        startActivity(intent);
+        getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
+
+    @OnClick(R.id.edit_profile)
+    public void OnEditProfile() {
+        Intent intent = new Intent(getContext(), EditProfileActivity.class);
+        startActivity(intent);
+        getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 
 }

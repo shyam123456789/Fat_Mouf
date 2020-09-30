@@ -13,14 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.fatmouf.R;
+import com.example.fatmouf.Utilities.MyLog;
 import com.example.fatmouf.Utilities.PreferenceManger;
 import com.example.fatmouf.activities.AddNewGroupActivity;
 import com.example.fatmouf.activities.BaseActivity;
+import com.example.fatmouf.activities.ChatActivity;
 import com.example.fatmouf.adapters.TalkYoTalkAdapter;
 import com.example.fatmouf.models.GroupListModel;
 import com.example.fatmouf.models.GroupModel;
 import com.example.fatmouf.retrofit_provider.RetrofitService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -41,6 +44,7 @@ public class TalkYoTalkFragment extends Fragment {
     TalkYoTalkAdapter adapter;
 
     ArrayList<GroupModel> list = new ArrayList<>();
+    private String TAG = "TalkYoTalkFragment";
 
     public static TalkYoTalkFragment newInstance(String param1, String param2) {
         TalkYoTalkFragment fragment = new TalkYoTalkFragment();
@@ -66,7 +70,15 @@ public class TalkYoTalkFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_talk_yo_talk, container, false);
         ButterKnife.bind(this, view);
-        adapter = new TalkYoTalkAdapter(getContext(), list);
+        adapter = new TalkYoTalkAdapter(getContext(), list, p -> {
+            try {
+                Intent intent = new Intent(getContext(), ChatActivity.class);
+                startActivity(intent);
+                getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+
+            } catch (Exception e) {
+            }
+        });
         recyclerView.setAdapter(adapter);
         getList();
         return view;
@@ -94,11 +106,15 @@ public class TalkYoTalkFragment extends Fragment {
                     list.addAll(response.body().getList());
                     adapter.notifyDataSetChanged();
                 }
+                MyLog.LogE(TAG, ">>> onResponse  " + new Gson().toJson(response.body()));
+
             }
 
             @Override
             public void onFailure(Call<GroupListModel> call, Throwable t) {
                 activity.getProgressDialog().dismiss();
+                MyLog.LogE(TAG, ">>>  onFailure " + t.getMessage());
+
             }
         });
 

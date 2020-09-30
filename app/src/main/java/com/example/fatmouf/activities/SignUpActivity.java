@@ -1,18 +1,21 @@
 package com.example.fatmouf.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatCheckBox;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.app.ActivityCompat;
 
-import android.graphics.Color;
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.widget.Toast;
 
@@ -22,6 +25,9 @@ import com.example.fatmouf.R;
 import com.example.fatmouf.Utilities.AppUtils;
 import com.example.fatmouf.models.ResponseModel;
 import com.example.fatmouf.retrofit_provider.RetrofitService;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +37,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignUpActivity extends MyAbstractActivity {
+
+    Location location;
 
     @BindView(R.id.civ_dp)
     CircleImageView civ_dp;
@@ -74,7 +82,10 @@ public class SignUpActivity extends MyAbstractActivity {
     @BindView(R.id.check)
     AppCompatCheckBox check;
 
+    private FusedLocationProviderClient fusedLocationClient;
 
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,11 +95,24 @@ public class SignUpActivity extends MyAbstractActivity {
         listners();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void initview() {
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         Glide.with(this).load(R.drawable.ic_avatar).into(civ_dp);
+        CheckLocationPermission();
+    }
 
+
+    private void getLocation() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        } else {
+            fusedLocationClient.getLastLocation().addOnSuccessListener(location ->
+                    SignUpActivity.this.location = location);
+        }
     }
 
     @Override
@@ -132,7 +156,6 @@ public class SignUpActivity extends MyAbstractActivity {
         String password = et_password.getText().toString();
         String c_password = et_confirmpassword.getText().toString();
         String referral = et_referral.getText().toString();
-
         if (AppUtils.ValidateText(firstName, "Please fill first name", et_firstname) &&
                 AppUtils.ValidateText(lastName, "Please fill last name", et_lastname) &&
                 AppUtils.ValidateText(city, "Please fill city", et_city) &&
@@ -161,7 +184,13 @@ public class SignUpActivity extends MyAbstractActivity {
 
     private void signup(String firstName, String lastName, String email, String phone, String address, String city, String state, String zipcode, String password, String refercode) {
         getProgressDialog().show();
-        Call<ResponseModel> call = RetrofitService.RetrofitService().register(firstName, lastName, email, phone, password, address, "", "", "", "Android", refercode);
+
+        Call<ResponseModel> call;
+        if (location == null) {
+            call = RetrofitService.RetrofitService().register(firstName, lastName, email, phone, password, address, "", "", "", "Android", refercode);
+        } else {
+            call = RetrofitService.RetrofitService().register(firstName, lastName, email, phone, password, address, location.getLatitude() + "", location.getLongitude()+"", "", "Android", refercode);
+        }
         call.enqueue(new Callback<ResponseModel>() {
             @Override
             public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
@@ -181,6 +210,13 @@ public class SignUpActivity extends MyAbstractActivity {
 
     public void OpenGallery(View view) {
 
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        getLocation();
     }
 
 

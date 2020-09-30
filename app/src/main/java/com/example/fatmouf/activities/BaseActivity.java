@@ -6,12 +6,17 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -21,6 +26,9 @@ import com.example.fatmouf.R;
 import com.example.fatmouf.Utilities.AppUtils;
 import com.example.fatmouf.Utilities.InternetConnectionError;
 import com.example.fatmouf.Utilities.MyApp;
+import com.example.fatmouf.Utilities.MyLog;
+
+import static com.example.fatmouf.Utilities.AppConstants.PERMISSION_REQUEST_CODE;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -116,6 +124,48 @@ public class BaseActivity extends AppCompatActivity {
             internetConnectionError.dismiss();
         } else {
             internetConnectionError.show();
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean CheckStoragePermission() {
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            MyLog.LogE("TAG", ">>  ");
+            //File write logic here
+            return true;
+        } else {
+            requestPermission();
+            return false;
+        }
+    }
+
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    public boolean CheckLocationPermission() {
+        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            MyLog.LogE("TAG", ">>  ");
+            //File write logic here
+            return true;
+        } else {
+            requestLocationPermission();
+            return false;
+        }
+    }
+
+    private void requestPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) && ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            Toast.makeText(this, "Storage permission allows us to do store images. Please allow this permission in App Settings.", Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+        }
+    }
+
+
+    private void requestLocationPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION) && ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+            Toast.makeText(this, "Location permission allows us to do store images. Please allow this permission in App Settings.", Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
         }
     }
 

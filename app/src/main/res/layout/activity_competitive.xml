@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activities.CompetitiveActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|center"
+                android:drawableLeft="@drawable/ic_back_black"
+                android:drawableTint="@color/white"
+                android:gravity="center"
+                android:onClick="Back"
+                android:text="@string/back"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="bold" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Competitive Details"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -250,35 +292,37 @@
 
 
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_more"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_20sdp"
                     android:gravity="center_horizontal"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+
                         android:layout_marginTop="@dimen/_3sdp"
                         android:layout_marginRight="@dimen/_5sdp"
                         android:gravity="center"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_my"
+                            android:id="@+id/iv_view_participants"
                             android:layout_width="@dimen/_45sdp"
                             android:layout_height="@dimen/_45sdp" />
 
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/tv_mychallenge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
                             android:gravity="center"
                             android:lines="2"
-                            android:text="My Challenges"
+                            android:text="View Participants"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
                             android:textStyle="bold" />
@@ -296,18 +340,57 @@
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_pc"
+                            android:id="@+id/iv_view_activity"
                             android:layout_width="@dimen/_45sdp"
                             android:layout_height="@dimen/_45sdp" />
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/tv_accept_challenges"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/_3sdp"
                             android:gravity="center"
                             android:lines="2"
-                            android:text="Accept Challenges"
+                            android:text="View Activity"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/ll_acceptchallange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/ll_accept_challenge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_3sdp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_accept_challenge"
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="@dimen/_45sdp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:lines="2"
+                            android:text="Accept Challenge"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12sdp"
                             android:textStyle="bold" />
@@ -325,4 +408,4 @@
 
 
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>

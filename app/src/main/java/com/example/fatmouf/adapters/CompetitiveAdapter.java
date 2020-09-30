@@ -1,6 +1,7 @@
 package com.example.fatmouf.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.bumptech.glide.Glide;
 import com.example.fatmouf.R;
 import com.example.fatmouf.Utilities.AppUtils;
+import com.example.fatmouf.activities.BaseActivity;
+import com.example.fatmouf.activities.CompetitiveActivity;
 import com.example.fatmouf.models.HomePublicModel;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
@@ -43,15 +46,25 @@ public class CompetitiveAdapter extends RecyclerView.Adapter<CompetitiveAdapter.
     @Override
     public void onBindViewHolder(@NonNull CHolder holder, int position) {
         HomePublicModel model = publicList.get(position);
-        PostItemPagerAdapter adapter = new PostItemPagerAdapter(context,model.getMedia());
+        PostItemPagerAdapter adapter = new PostItemPagerAdapter(context, model.getMedia());
         holder.pager.setAdapter(adapter);
         holder.worm_dots_indicator.setViewPager(holder.pager);
-        Glide.with(context).load(model.getUserInfo().get(0).getImage()).into(holder.iv_img);
+        Glide.with(context).load(model.getUserInfo().get(0).getImage()).placeholder(R.drawable.ic_avatar).into(holder.iv_img);
         holder.tv_location.setText(model.getUserInfo().get(0).getCity());
         holder.tv_authername.setText(model.getUserInfo().get(0).getFirstName() + " " + model.getUserInfo().get(0).getFirstName());
         holder.tv_time.setText(model.getCreatedDate());
         holder.tv_title.setText(model.getTitle());
         holder.tv_des.setText(model.getDescription());
+        holder.itemView.setOnClickListener(e -> {
+            Intent intent = new Intent(context, CompetitiveActivity.class);
+            intent.putExtra("COMPETITIVEDETAILS",model);
+            context.startActivity(intent);
+            try {
+                BaseActivity activity = (BaseActivity) context;
+                activity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            } catch (Exception e2) {
+            }
+        });
     }
 
     @Override

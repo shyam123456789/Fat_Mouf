@@ -16,32 +16,17 @@ import android.widget.RadioGroup;
 
 import com.example.fatmouf.R;
 import com.example.fatmouf.Utilities.AppUtils;
-import com.example.fatmouf.Utilities.MyLog;
-import com.example.fatmouf.Utilities.PreferenceManger;
-import com.example.fatmouf.activities.AddActivity;
 import com.example.fatmouf.activities.AddChallenge;
 import com.example.fatmouf.activities.BaseActivity;
 import com.example.fatmouf.adapters.CompetitiveAdapter;
 import com.example.fatmouf.models.HomePublicModel;
-import com.example.fatmouf.models.HomePublicResponse;
-import com.example.fatmouf.retrofit_provider.RetrofitService;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CompetitiveFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CompetitiveFragment extends Fragment {
 
 

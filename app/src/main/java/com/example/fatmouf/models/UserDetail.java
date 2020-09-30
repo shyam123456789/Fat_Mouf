@@ -23,7 +23,7 @@ public class UserDetail implements Parcelable {
     public String phonenumber;
     @SerializedName("image")
     @Expose
-    public Object image;
+    public String image;
     @SerializedName("google_id")
     @Expose
     public Object googleId;
@@ -93,9 +93,12 @@ public class UserDetail implements Parcelable {
     @SerializedName("phone_verified")
     @Expose
     public String phoneVerified;
+
     @SerializedName("token")
     @Expose
     public String token;
+
+    public boolean selected;
 
 
     protected UserDetail(Parcel in) {
@@ -127,6 +130,7 @@ public class UserDetail implements Parcelable {
         deviceId = in.readString();
         phoneVerified = in.readString();
         token = in.readString();
+        selected = in.readByte() != 0;
     }
 
     @Override
@@ -160,6 +164,7 @@ public class UserDetail implements Parcelable {
         dest.writeString(deviceId);
         dest.writeString(phoneVerified);
         dest.writeString(token);
+        dest.writeByte((byte) (selected ? 1 : 0));
     }
 
     @Override
@@ -195,7 +200,7 @@ public class UserDetail implements Parcelable {
         return phonenumber;
     }
 
-    public Object getImage() {
+    public String getImage() {
         return image;
     }
 
@@ -235,7 +240,7 @@ public class UserDetail implements Parcelable {
         return city;
     }
 
-    public Object getState() {
+    public String getState() {
         return state;
     }
 
@@ -295,4 +300,12 @@ public class UserDetail implements Parcelable {
         return token;
     }
 
-  }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+}

@@ -1,10 +1,15 @@
 package com.example.fatmouf.retrofit_provider;
 
 
+import com.example.fatmouf.activities.ParticipantasActivity;
 import com.example.fatmouf.models.GroupListModel;
 import com.example.fatmouf.models.HomePublicResponse;
 import com.example.fatmouf.models.LoginResponse;
+import com.example.fatmouf.models.ParticipantasListModel;
+import com.example.fatmouf.models.ParticipantasModel;
 import com.example.fatmouf.models.ResponseModel;
+import com.example.fatmouf.models.UpdateUserModel;
+import com.example.fatmouf.models.UserListModel;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -38,9 +43,8 @@ public interface RetrofitApiClient {
                                         @Field("password") String password,
                                         @Field("confirm_password") String confirm_password);
 
-    @POST("user_list")
-    @FormUrlEncoded
-    Call<ResponseModel> user_list(@Header("Authorization") String token);
+    @GET("user_list")
+    Call<UserListModel> user_list(@Header("Authorization") String token);
 
     @POST("accept_challenge")
     @FormUrlEncoded
@@ -51,14 +55,14 @@ public interface RetrofitApiClient {
 
     @POST("get_participant_list")
     @FormUrlEncoded
-    Call<ResponseModel> get_participant_list(@Header("Authorization") String token,
-                                             @Field("challenge_id") String challenge_id
+    Call<ParticipantasListModel> get_participant_list(@Header("Authorization") String token,
+                                                      @Field("challenge_id") String challenge_id
     );
 
     @POST("get_activity_list")
     @FormUrlEncoded
     Call<ResponseModel> get_activity_list(@Header("Authorization") String token,
-                                             @Field("challenge_id") String challenge_id
+                                          @Field("challenge_id") String challenge_id
     );
 
     @POST("update_participant")
@@ -101,7 +105,8 @@ public interface RetrofitApiClient {
 
     @POST("add_challenge")
     @FormUrlEncoded
-    Call<ResponseModel> add_challenge(@Field("challenge_type") String challenge_type,
+    Call<ResponseModel> add_challenge(@Header("Authorization") String Authorization,
+                                      @Field("challenge_type") String challenge_type,
                                       @Field("title") String title,
                                       @Field("start_date") String start_date,
                                       @Field("end_date") String end_date,
@@ -240,5 +245,29 @@ public interface RetrofitApiClient {
     @GET("GetOffersSliders")
     Call<SliderMainModel> getOfferSlider();
 */
+
+    @POST("add_group_chat")
+    @Multipart
+    Call<ResponseModel> add_group_chat(@Part("Authorization") String Authorization,
+                                       @Part("title") RequestBody title,
+                                       @Part("user_list") RequestBody user_list,
+                                       @Part MultipartBody.Part file);
+
+    @POST("update-profile")
+    @Multipart
+    Call<UpdateUserModel> update_profile(@Part("Authorization") String Authorization,
+                                         @Part("first_name") RequestBody first_name,
+                                         @Part("last_name") RequestBody last_name,
+                                         @Part("address") RequestBody address,
+                                         @Part("city") RequestBody city,
+                                         @Part("state") RequestBody state,
+                                         @Part("country") RequestBody country,
+                                         @Part("phonenumber") RequestBody phonenumber,
+                                         @Part("lat") RequestBody lat,
+                                         @Part("lng") RequestBody lng,
+                                         @Part("device_id") RequestBody device_id,
+                                         @Part("device_type") RequestBody device_type,
+                                         @Part MultipartBody.Part file);
+
 
 }

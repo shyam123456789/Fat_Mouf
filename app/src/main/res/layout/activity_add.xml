@@ -85,24 +85,6 @@
                 android:orientation="vertical">
 
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/title"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@null"
-                    android:hint="@string/firstname"
-                    android:padding="@dimen/_4sdp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/grey" />
-
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="0.7dp"
@@ -110,36 +92,6 @@
                     android:background="@color/grey2" />
 
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="2">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:hint="Select Viewer Mode"
-                        android:padding="@dimen/_4sdp"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black" />
-
-                    <androidx.appcompat.widget.AppCompatSpinner
-                        android:id="@+id/et_spinner"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@android:drawable/btn_dropdown"
-                        android:entries="@array/array_accessbility"
-                        android:hint="@string/firstname"
-                        android:spinnerMode="dropdown"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/grey" />
-
-
-                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <FrameLayout
                     android:layout_width="match_parent"
