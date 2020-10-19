@@ -118,10 +118,8 @@ public class AddNewGroupActivity extends MyAbstractActivity {
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("group").child("members");
                         myRef.push();
-                        MyLog.LogE(TAG, ">>>  onResponse " + response.code());
-                        MyLog.LogE(TAG, ">>>  onResponse " + response.message());
-                        MyLog.LogE(TAG, ">>>  onResponse " + new Gson().toJson(response.body()));
                     }
+
 
                     @Override
                     public void onFailure(Call<ResponseModel> call, Throwable t) {
