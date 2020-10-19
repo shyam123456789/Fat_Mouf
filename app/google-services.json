@@ -1,43 +1,50 @@
 {
   "project_info": {
-    "project_number": "865347704365",
-    "firebase_url": "https://fat-mouf.firebaseio.com",
-    "project_id": "fat-mouf",
-    "storage_bucket": "fat-mouf.appspot.com"
+    "project_number": "1035248750004",
+    "firebase_url": "https://mouf-69702.firebaseio.com",
+    "project_id": "mouf-69702",
+    "storage_bucket": "mouf-69702.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:865347704365:android:e8e75b68de80eafad30aa4",
+        "mobilesdk_app_id": "1:1035248750004:android:f795f43387557807a1f6e1",
         "android_client_info": {
-          "package_name": "com.example.fatmouf"
+          "package_name": "com.fatmouf.fatmouf"
         }
       },
       "oauth_client": [
         {
-          "client_id": "865347704365-dvoupadt452sgm0hle46ouiq8178166l.apps.googleusercontent.com",
+          "client_id": "1035248750004-rrkp2fam58l54a17iis54tf8tgmu32cj.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.fatmouf",
+            "package_name": "com.fatmouf.fatmouf",
             "certificate_hash": "38daf53e3d7f299a998d6ac246e5b97945512e25"
           }
         },
         {
-          "client_id": "865347704365-0kq7ca0kohge32picm9fq3u4jrn4e2aq.apps.googleusercontent.com",
+          "client_id": "1035248750004-tti181oimmc855c61p4t8ucn1usr9974.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBA0J0RaCwiaxtwKyOAq02hYbBB4r2daiI"
+          "current_key": "AIzaSyAKhLyxb-uc0iwwkRFTJRGVemWET4cGZKY"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "865347704365-0kq7ca0kohge32picm9fq3u4jrn4e2aq.apps.googleusercontent.com",
+              "client_id": "1035248750004-tti181oimmc855c61p4t8ucn1usr9974.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1035248750004-k4jv6m4os3thdk81tb5omssmg82iks7o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fat.mouf"
+              }
             }
           ]
         }

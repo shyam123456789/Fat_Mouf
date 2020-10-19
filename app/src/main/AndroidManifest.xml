@@ -1,109 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.fatmouf">
+    package="com.fatmouf.fatmouf">
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:name=".Utilities.MyApp"
+        android:name="com.fatmouf.fatmouf.Utilities.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:largeHeap="true"
         android:theme="@style/AppTheme">
+        <activity android:name="com.fatmouf.fatmouf.activities.BillingActivity"></activity>
         <activity
-            android:name=".activities.EditProfileActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity
-            android:name=".activities.GroupDetailsActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.ParticipantasActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.ActivitiesListActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.AddNewGroupActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.VideoActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.ChatActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.AddActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.SelectWinnerActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.ChallengeMorePeopleActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.CompetitiveActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.AddChallenge"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.SettingActivity"
-            android:launchMode="singleInstance"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppThemeNoActionBar" />
-        <activity
-            android:name=".activities.ChangePasswordActivity"
-            android:launchMode="singleInstance"
+            android:name="com.fatmouf.fatmouf.activities.EditProfileActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activities.ForgotpasswordActivity"
-            android:launchMode="singleInstance"
+            android:name="com.fatmouf.fatmouf.activities.GroupDetailsActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.ParticipantasActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.ActivitiesListActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.AddNewGroupActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.VideoActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.ChatActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.AddActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.SelectWinnerActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.ChallengeMorePeopleActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.CompetitiveActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.AddChallenge"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.SettingActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.ChangePasswordActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activities.SignUpActivity"
-            android:launchMode="singleInstance"
+            android:name="com.fatmouf.fatmouf.activities.ForgotpasswordActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".activities.SplashActivity"
-            android:launchMode="singleTask"
+            android:name="com.fatmouf.fatmouf.activities.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:parentActivityName=".activities.Login"
+            android:theme="@style/AppThemeNoActionBar"
+            android:excludeFromRecents="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.SplashActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
@@ -112,17 +117,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name=".activities.MainActivity"
-            android:launchMode="singleInstance"
+            android:name="com.fatmouf.fatmouf.activities.MainActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
-            android:name=".activities.Login"
-            android:launchMode="singleInstance"
+            android:name="com.fatmouf.fatmouf.activities.Login"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNoActionBar"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.fatmouf.fatmouf.activities.SendFeedBackActivity"
+            android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNoActionBar"
             android:windowSoftInputMode="adjustPan" />
@@ -130,13 +139,6 @@
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
-<!--
-        <service
-
-            android:name="LocationServices"
-            android:foregroundServiceType="location">
-         Any inner elements would go here.
-    </service>-->
     </application>
 
 </manifest>

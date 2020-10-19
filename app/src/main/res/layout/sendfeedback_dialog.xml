@@ -109,11 +109,24 @@
                     android:id="@+id/rv_list"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginBottom="@dimen/_10sdp"
-                    android:orientation="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:spanCount="3" />
 
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:background="@drawable/bg_login"
+                    android:paddingLeft="@dimen/_25sdp"
+                    android:paddingRight="@dimen/_25sdp"
+                    android:text="@string/send"
+                    android:textColor="@color/white" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>

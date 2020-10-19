@@ -387,7 +387,8 @@
                     android:id="@+id/check"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_gravity="center_vertical"
+                    android:checked="true" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/agree_terms_condition"
